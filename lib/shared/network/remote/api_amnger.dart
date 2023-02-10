@@ -10,8 +10,13 @@ class ApiManger {
     Uri URL =
         Uri.https(BaseUrl, '/v2/top-headlines/sources', {'apiKey': APIKey});
     Response sources = await http.get(URL);
-    var json =jsonDecode(sources.body);
-  SourcesResponse sourcesResponse = SourcesResponse.fromJson(json);
-  return sourcesResponse;
+    try {
+      var json = jsonDecode(sources.body);
+      SourcesResponse sourcesResponse = SourcesResponse.fromJson(json);
+      return sourcesResponse;
+    } catch (e) {
+      print("error here  $e");
+      throw e;
+    }
   }
 }
