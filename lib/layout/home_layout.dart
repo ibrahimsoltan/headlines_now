@@ -16,7 +16,7 @@ class HomeLayout extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white ,
         appBar: AppBar( title: Text("News")
-          ,),
+          ,shape: OutlineInputBorder(borderRadius: BorderRadius.only(bottomRight: Radius.circular(12),bottomLeft: Radius.circular(12) ))),
         body: HomeScreen(),
       ),
     );
